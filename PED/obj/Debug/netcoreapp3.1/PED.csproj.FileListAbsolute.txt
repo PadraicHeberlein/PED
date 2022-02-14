@@ -1,0 +1,14 @@
+C:\Users\padra\source\repos\PadraicHeberlein\PED\PED\bin\Debug\netcoreapp3.1\PED.exe
+C:\Users\padra\source\repos\PadraicHeberlein\PED\PED\bin\Debug\netcoreapp3.1\PED.deps.json
+C:\Users\padra\source\repos\PadraicHeberlein\PED\PED\bin\Debug\netcoreapp3.1\PED.runtimeconfig.json
+C:\Users\padra\source\repos\PadraicHeberlein\PED\PED\bin\Debug\netcoreapp3.1\PED.runtimeconfig.dev.json
+C:\Users\padra\source\repos\PadraicHeberlein\PED\PED\bin\Debug\netcoreapp3.1\PED.dll
+C:\Users\padra\source\repos\PadraicHeberlein\PED\PED\bin\Debug\netcoreapp3.1\PED.pdb
+C:\Users\padra\source\repos\PadraicHeberlein\PED\PED\obj\Debug\netcoreapp3.1\PED.csproj.AssemblyReference.cache
+C:\Users\padra\source\repos\PadraicHeberlein\PED\PED\obj\Debug\netcoreapp3.1\PED.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\padra\source\repos\PadraicHeberlein\PED\PED\obj\Debug\netcoreapp3.1\PED.AssemblyInfoInputs.cache
+C:\Users\padra\source\repos\PadraicHeberlein\PED\PED\obj\Debug\netcoreapp3.1\PED.AssemblyInfo.cs
+C:\Users\padra\source\repos\PadraicHeberlein\PED\PED\obj\Debug\netcoreapp3.1\PED.csproj.CoreCompileInputs.cache
+C:\Users\padra\source\repos\PadraicHeberlein\PED\PED\obj\Debug\netcoreapp3.1\PED.dll
+C:\Users\padra\source\repos\PadraicHeberlein\PED\PED\obj\Debug\netcoreapp3.1\PED.pdb
+C:\Users\padra\source\repos\PadraicHeberlein\PED\PED\obj\Debug\netcoreapp3.1\PED.genruntimeconfig.cache
