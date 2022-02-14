@@ -1,2 +1,2 @@
 # PED
-A console based app to encrypt and decrypt files.
+A console based application written in C# that encrypts and decrypts files.
