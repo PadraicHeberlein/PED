@@ -33,11 +33,12 @@ namespace PED.Util
                     originalBits[i] = nextBits;
             }
         }
-        // Need to pad the text so that 16 divides it's length.
+        // Need to pad the text so that 32 divides it's length.
         int PadMessage()
         {
-            int remainder = message.Length % Permutation.SIZE;
-            int theRest = Permutation.SIZE - remainder;
+            int divisor = Permutation.SIZE * 2;
+            int remainder = message.Length % divisor;
+            int theRest = divisor - remainder;
             if (theRest != 0)
             {
                 int newLength = message.Length + theRest;
@@ -98,6 +99,10 @@ namespace PED.Util
         public string GetOriginalMessage()
         {
             return message;
+        }
+        public char GetCharAt(int index)
+        {
+            return originalBits[index].ToChar();
         }
         // To bit string method:
         public string ToBitString(bool original = true)

@@ -42,5 +42,30 @@ namespace PED.Util.Crypto
 
             return permutation;
         }
+        // Method to convert message to array of 32 strings. 
+        static string[] MessageToBlocks(Message message)
+        {
+            int numBlocks = Permutation.SIZE * 2;
+            int blockSize = message.size / numBlocks;
+            List<string> blocks = new List<string>();
+
+            for (int i = 0; i < numBlocks; i++)
+            {
+                string currentBlock = "";
+                for (int j = 0; j < blockSize; j++)
+                {
+                    int currentIndex = i * numBlocks + j;
+                    currentBlock += message.GetCharAt(currentIndex);
+                }
+                blocks.Add(currentBlock);
+            }
+
+            return blocks.ToArray();
+        }
+        // Method for permutating blocks.
+        static Message PermutateMessage(uint[] permutation, Message message)
+        {
+            return message;
+        }
     }
 }
