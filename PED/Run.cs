@@ -36,11 +36,11 @@ namespace PED
             switch(flag)
             {
                 case ENCRYPT:
-                    string encryptionKey = Util.Encrypt.WithArgs(args);
+                    string encryptionKey = await Util.Encrypt.WithArgs(args);
                     Console.WriteLine($"Your encryption key is : {encryptionKey}");
                     break;
                 case DECRYPT:
-                    Util.Decrypt.WithArgs(args);
+                    await Util.Decrypt.WithArgs(args);
                     break;
                 case HELP:
                     Util.Help.PrintFile();

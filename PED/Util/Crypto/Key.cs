@@ -53,6 +53,14 @@ namespace PED
         {
             return Permutation.GenerateInverse(bitCypherKey);
         }
+        public uint[] GetBlockEncryptionKey()
+        {
+            return blockCypherKey;
+        }
+        public uint[] GetBlockDecryptionKey()
+        {
+            return Permutation.GenerateInverse(blockCypherKey);
+        }
         public override string ToString()
         {
             return key.ToString();

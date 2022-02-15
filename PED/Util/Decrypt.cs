@@ -12,7 +12,6 @@ namespace PED.Util
         {
             throw new NotImplementedException();
         }
-
         public static async Task WithoutArgs(string theKey)
         {
             try

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PED.Util.Crypto;
+using System;
 using System.IO;
 using System.Threading.Tasks;
 
@@ -7,11 +8,11 @@ namespace PED.Util
     public static class Encrypt
     {
         private static readonly Feature ENCRYPTION = Feature.Encryption;
-        public static string WithArgs(string[] args)
+        // TODO:
+        public static async Task<string> WithArgs(string[] args)
         {
             throw new NotImplementedException();
         }
-
         public static async Task<string> WithoutArgs()
         {
             try
@@ -25,6 +26,7 @@ namespace PED.Util
                 Key key = new Key();
                 // Encrypt the message with the above key.
                 message.PermutateBits(key.GetBitEncryptionKey());
+                message = BlockCypher.Encrypt(key, message);
                 // Create new file for the encrypted text.
                 using StreamWriter encryptedFile =
                     new StreamWriter(FileIO.MakePathFor(ENCRYPTION));
