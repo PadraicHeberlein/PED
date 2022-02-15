@@ -10,12 +10,12 @@ namespace PED.Util.Crypto
         public static Message Encrypt(Key key, Message message)
         {
             uint[] blockEncryptionKey = MakePermutationFromKey(key);
-            return message;
+            return PermutateMessage(blockEncryptionKey, message, Feature.Encryption);
         }
         public static Message Decrypt(Key key, Message message)
         {
             uint[] blockDecryptionKey = MakePermutationFromKey(key, true);
-            return message;
+            return PermutateMessage(blockDecryptionKey, message, Feature.Decryption);
         }
         // Make a permutation of numbers 0 - 31 from bit and block keys.
         static uint[] MakePermutationFromKey(Key key, bool inverse = false)
@@ -63,9 +63,20 @@ namespace PED.Util.Crypto
             return blocks.ToArray();
         }
         // Method for permutating blocks.
-        static Message PermutateMessage(uint[] permutation, Message message)
+        static Message PermutateMessage
+            (uint[] permutation, Message message, Feature feature)
         {
-            return message;
+            bool encrypt = feature == Feature.Encryption ?
+                true : false;
+
+            string[] blocks = MessageToBlocks(message);
+            int numBlocks = blocks.Length;
+            string blockString = "";
+
+            for (int i = 0; i < numBlocks; i++)
+                blockString += blocks[permutation[i]];
+                
+            return new Message(blockString, encrypt);
         }
     }
 }
