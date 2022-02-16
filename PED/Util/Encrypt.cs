@@ -25,12 +25,13 @@ namespace PED.Util
                 // Generate random key for permutations to be used.
                 Key key = new Key();
                 // Encrypt the message with the above key.
-                message.PermutateBits(key.GetBitEncryptionKey());
+                //message.PermutateBits(key.GetBitEncryptionKey());
                 message = BlockCypher.Encrypt(key, message);
                 // Create new file for the encrypted text.
                 using StreamWriter encryptedFile =
                     new StreamWriter(FileIO.MakePathFor(ENCRYPTION));
                 // Write to file and close.
+                
                 await encryptedFile.WriteLineAsync(message.GetEncryptedText());
                 encryptedFile.Close();
                 // TODO: Delete original file.

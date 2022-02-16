@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace PED.Util.Crypto
 {
@@ -34,7 +32,7 @@ namespace PED.Util.Crypto
                 key2 = key.GetBitEncryptionKey();
             }
 
-            for (int i = 0; i < PERM_SIZE / bitPermutationSize; i++)
+            for (int i = 0; i < bitPermutationSize; i++)
             {
                 permutation[2 * i] = key1[i];
                 permutation[2 * i + 1] = key2[i] + bitPermutationSize;
@@ -43,7 +41,7 @@ namespace PED.Util.Crypto
             return permutation;
         }
         // Method to convert message to array of 32 strings. 
-        static string[] MessageToBlocks(Message message)
+        static string[] MessageToBlocks(Message message, bool decrypt)
         {
             int numBlocks = Permutation.SIZE * 2;
             int blockSize = message.size / numBlocks;
@@ -54,8 +52,8 @@ namespace PED.Util.Crypto
                 string currentBlock = "";
                 for (int j = 0; j < blockSize; j++)
                 {
-                    int currentIndex = i * numBlocks + j;
-                    currentBlock += message.GetCharAt(currentIndex);
+                    int currentIndex = i * blockSize + j;
+                    currentBlock += message.GetCharAt(currentIndex, decrypt);
                 }
                 blocks.Add(currentBlock);
             }
@@ -67,9 +65,9 @@ namespace PED.Util.Crypto
             (uint[] permutation, Message message, Feature feature)
         {
             bool encrypt = feature == Feature.Encryption ?
-                true : false;
+                false : true;
 
-            string[] blocks = MessageToBlocks(message);
+            string[] blocks = MessageToBlocks(message, encrypt);
             int numBlocks = blocks.Length;
             string blockString = "";
 

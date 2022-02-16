@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PED.Util.Crypto;
+using System;
 using System.IO;
 using System.Threading.Tasks;
 
@@ -27,7 +28,8 @@ namespace PED.Util
                 // Get decryption key by finding the inverse permutation.
                 uint[] decryptionKey = key.GetBitDecryptionKey();
                 // Decrypt the message with the above key.
-                message.PermutateBits(decryptionKey, false);
+                //message.PermutateBits(decryptionKey, false);
+                message = BlockCypher.Decrypt(key, message);
                 // Create new file for the decrypted text.
                 using StreamWriter decryptedFile =
                     new StreamWriter(FileIO.MakePathFor(DECRYPTION));

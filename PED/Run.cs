@@ -18,7 +18,7 @@ namespace PED
         const string YOUR_KEY = "Here is your encryption key : ";
         const string GOOD_BYE = "Goodbye, and don't forget to write down your key!";
         const string ENTER_KEY = "Please enter your encryption key : ";
-        const string DECRYTION_COMPLETE = "Decryption complete!";
+        const string DECRYPTION_COMPLETE = "Decryption complete!";
         // Run the program with agruments from the command line (cmd).
         public static async Task WithArgs(string[] args)
         {
@@ -83,7 +83,7 @@ namespace PED
                         string encrytionString = Console.ReadLine();
                         // Try to decrypt with key.
                         await Util.Decrypt.WithoutArgs(encrytionString);
-                        informUser = DECRYTION_COMPLETE;
+                        informUser = DECRYPTION_COMPLETE;
                         break;
                 }
                 // Print completed message and reset incase of quit.

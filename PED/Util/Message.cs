@@ -100,8 +100,11 @@ namespace PED.Util
         {
             return message;
         }
-        public char GetCharAt(int index)
+        public char GetCharAt(int index, bool decrypt = true)
         {
+            if (decrypt)
+                return encryptedBits[index].ToChar();
+
             return originalBits[index].ToChar();
         }
         // To bit string method:
