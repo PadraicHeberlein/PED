@@ -3,19 +3,40 @@ using System.Collections.Generic;
 
 namespace PED.Util
 {
-    public static class Permutation
+    public class Permutation
     {
-        public const int SIZE = 16;
+        int size;
+        Random rando;
+        uint[] function;
 
-        static Random rando = new Random();
+        public Permutation(int theSize = 16)
+        {
+            size = theSize;
+            rando = new Random();
+            function = Generate();
+        }
 
-        public static uint[] Generate()
+        public Permutation(uint[] theFunction)
+        {
+            size = theFunction.Length;
+            rando = new Random();
+            function = theFunction;
+        }
+
+        public Permutation(Permutation other)
+        {
+            size = other.size;
+            rando = new Random();
+            function = other.function;
+        }
+
+        uint[] Generate()
         {
             List<uint> key = new List<uint>();
 
-            while (key.Count < SIZE)
+            while (key.Count < size)
             {
-                uint nextValue = (uint)rando.Next(0, SIZE);
+                uint nextValue = (uint)rando.Next(0, size);
 
                 if (!key.Contains(nextValue))
                     key.Add(nextValue);
@@ -24,17 +45,19 @@ namespace PED.Util
             return key.ToArray();
         }
 
-        public static uint[] GenerateInverse(uint[] permutation)
-        {
-            uint[] inverse = new uint[SIZE];
+        public void Regenerate() { function = Generate(); }
 
-            for(uint i = 0; i < SIZE; i++)
+        public Permutation Inverse()
+        {
+            uint[] inverse = new uint[size];
+
+            for(uint i = 0; i < size; i++)
             {
-                uint index = permutation[i];
+                uint index = function[i];
                 inverse[index] = i;
             }
 
-            return inverse;
+            return new Permutation(inverse);
         }
     }
 }

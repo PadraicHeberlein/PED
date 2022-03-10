@@ -8,15 +8,16 @@ namespace TestPED
         [Fact]
         public void TestGenerator_CheckForFiniteTimeGeneration()
         {
-            uint[] testPermutation = Permutation.Generate();
+            Permutation testPermutation = new Permutation();
             Assert.True(testPermutation != null);
         }
+
         [Fact]
         public void TestInverse_CheckIfTwoCompositionsProducesOriginal()
         {
-            uint[] testPermutation = Permutation.Generate();
-            uint[] testInverse = Permutation.GenerateInverse(testPermutation);
-            Assert.Equal(testPermutation, Permutation.GenerateInverse(testInverse));
+            Permutation testPermutation = new Permutation();
+            Permutation testInverse = testPermutation.Inverse();
+            Assert.Equal(testPermutation, testInverse.Inverse());
         }
     }
 }
