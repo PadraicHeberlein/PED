@@ -5,4 +5,10 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Reference Include="Information">
+      <HintPath>..\..\..\Information\Information\bin\Debug\Information.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>

@@ -1,4 +1,6 @@
-﻿namespace PED.Util.Crypto
+﻿using Information;
+
+namespace PED.Util.Crypto
 {
     public class Bits
     {
@@ -6,11 +8,11 @@
         // Constructors:
         public Bits()
         {
-            bits = new bool[2 * ByteProcessor.BYTE_WIDTH];
+            bits = new bool[2 * Globals.BYTE_WIDTH];
         }
         public Bits(char target)
         {
-            bits = new bool[2 * ByteProcessor.BYTE_WIDTH];
+            bits = new bool[2 * Globals.BYTE_WIDTH];
             SetBits(target);
         }
         // Get and set methods:
@@ -27,19 +29,19 @@
         }
         public void SetBits(char target)
         {
-            byte upper = ByteProcessor.GetUpperByte(target);
-            byte lower = ByteProcessor.GetLowerByte(target);
+            byte upper = Processing.GetUpperByte(target);
+            byte lower = Processing.GetLowerByte(target);
 
-            for (ushort i = 0; i < ByteProcessor.BYTE_WIDTH; i++)
+            for (ushort i = 0; i < Globals.BYTE_WIDTH; i++)
             {
-                if (ByteProcessor.BitExtractor(lower, i) == 0)
+                if (Processing.BitExtractor(lower, i) == Bit.ZERO)
                     bits[i] = false;
                 else
                     bits[i] = true;
-                if (ByteProcessor.BitExtractor(upper, i) == 0)
-                    bits[i + ByteProcessor.BYTE_WIDTH] = false;
+                if (Processing.BitExtractor(upper, i) == Bit.ZERO)
+                    bits[i + Globals.BYTE_WIDTH] = false;
                 else
-                    bits[i + ByteProcessor.BYTE_WIDTH] = true;
+                    bits[i + Globals.BYTE_WIDTH] = true;
             }
         }
         // To char and string methods:
@@ -49,7 +51,7 @@
 
             for (int i = 0; i < bits.Length; i++)
             {
-                if (i < ByteProcessor.BYTE_WIDTH)
+                if (i < Globals.BYTE_WIDTH)
                 {
                     if (bits[i])
                         lower += PowerOfTwo(i);

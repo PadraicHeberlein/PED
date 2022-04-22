@@ -2,6 +2,7 @@
 {
     public class Globals
     {
+        public static readonly int BYTE_WIDTH = 8;
         public static readonly string ENCRYPT_DIR = 
             @"\DropFilesToEncryptHere";
         public static readonly string DECRYPT_DIR = 
